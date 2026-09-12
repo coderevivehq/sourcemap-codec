@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		"noImplicitAny": true,
-		"diagnostics": true,
 		"noImplicitThis": true,
 		"noEmitOnError": true,
 		"target": "es5",
