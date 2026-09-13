@@ -1,24 +1,18 @@
 {
-  "name": "sourcemap-codec",
-  "version": "1.4.8",
-  "description": "Encode/decode sourcemap mappings",
+  "name": "@coderevivehq/sourcemap-codec",
+  "version": "1.4.9",
+  "description": "Encode and decode the mappings property of source maps.",
   "main": "dist/sourcemap-codec.umd.js",
   "module": "dist/sourcemap-codec.es.js",
   "types": "dist/types/sourcemap-codec.d.ts",
   "scripts": {
-    "test": "mocha",
-    "build": "rm -rf dist && rollup -c && tsc",
+    "build": "rm -rf dist && rollup -c rollup.config.mjs && tsc --emitDeclarationOnly",
     "pretest": "npm run build",
-    "prepublish": "npm test",
-    "lint": "eslint src",
-    "pretest-coverage": "npm run build",
-    "test-coverage": "rm -rf coverage/* && istanbul cover --report json node_modules/.bin/_mocha -- -u exports -R spec test/test.js",
-    "posttest-coverage": "remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.json -b dist && remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.lcov -t lcovonly -b dist && remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped -t html -b dist",
-    "ci": "npm run test-coverage && codecov < coverage/coverage-remapped.lcov"
+    "test": "node --test test/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rich-Harris/sourcemap-codec"
+    "url": "git+https://github.com/coderevivehq/sourcemap-codec.git"
   },
   "keywords": [
     "sourcemap",
@@ -27,22 +21,21 @@
   "author": "Rich Harris",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rich-Harris/sourcemap-codec/issues"
+    "url": "https://github.com/coderevivehq/sourcemap-codec/issues"
   },
-  "homepage": "https://github.com/Rich-Harris/sourcemap-codec",
+  "homepage": "https://github.com/coderevivehq/sourcemap-codec#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "dependencies": {},
   "devDependencies": {
-    "codecov.io": "^0.1.6",
-    "console-group": "^0.3.3",
-    "eslint": "^6.0.1",
-    "eslint-plugin-import": "^2.18.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.1.4",
-    "remap-istanbul": "^0.13.0",
-    "rollup": "^1.16.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript": "^1.0.1",
-    "typescript": "^3.5.2"
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.63.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
   },
   "files": [
     "dist/*.js",

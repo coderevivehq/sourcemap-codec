@@ -1,5 +1,9 @@
 # sourcemap-codec changelog
 
+## 1.4.9
+
+* Continue the package as `@coderevivehq/sourcemap-codec` with refreshed build tooling, CI, and documentation. The public `encode` and `decode` API remains unchanged.
+
 ## 1.4.8
 
 * Performance boost ([#80](https://github.com/Rich-Harris/sourcemap-codec/pull/80))

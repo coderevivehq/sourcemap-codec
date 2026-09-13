@@ -1,8 +1,7 @@
 const decode = require('../').decode;
 const encode = require('../').encode;
 const assert = require('assert');
-
-require('console-group').install();
+const { describe, it } = require('node:test');
 
 describe('sourcemap-codec', () => {
 	// TODO more tests
